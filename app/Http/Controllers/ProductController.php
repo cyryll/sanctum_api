@@ -43,7 +43,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        return products::find($id);
     }
 
     /**
@@ -55,7 +55,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = products::find($id);
+        $product->update($request->all());
+        return $product;
     }
 
     /**
@@ -66,6 +68,6 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }
